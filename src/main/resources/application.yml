@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/basiclucene
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: true  # Ativa as migrações do Flyway
+    locations: classpath:db/migration  # Define o local dos scripts SQL
+
+server:
+  port: 8080
+
+lucene: { index: dir:C:/joshua/testes }
