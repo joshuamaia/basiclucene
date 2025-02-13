@@ -83,15 +83,4 @@ public class LuceneProductIndexServiceImpl implements LuceneProductIndexService 
         return results;
     }
 
-    public void printIndexedDocuments() throws Exception {
-        try (FSDirectory dir = FSDirectory.open(Paths.get(indexDir));
-             DirectoryReader reader = DirectoryReader.open(dir)) {
-
-            System.out.println("Documentos indexados:");
-            for (int i = 0; i < reader.maxDoc(); i++) {
-                Document doc = reader.document(i);
-                System.out.println("ID: " + doc.get("id") + " | Description: " + doc.get("description_keyword"));
-            }
-        }
-    }
 }
