@@ -1,6 +1,6 @@
 package br.com.joshua.lucenebasic.controller;
 
-import br.com.joshua.lucenebasic.model.Product;
+import br.com.joshua.lucenebasic.model.dto.ProductResponse;
 import br.com.joshua.lucenebasic.service.LuceneProductIndexService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +31,7 @@ public class ProductSearchController {
     public ResponseEntity<?> search(@RequestParam String query,
                                     @RequestParam(required = false, defaultValue = "false") boolean exactMatch) {
         try {
-            List<Product> results = luceneService.search(query, exactMatch);
+            List<ProductResponse> results = luceneService.search(query, exactMatch);
             if (results.isEmpty()) {
                 return ResponseEntity.noContent().build(); // Retorna 204 se não encontrar resultados
             }
